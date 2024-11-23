@@ -1,6 +1,7 @@
 import React from "react";
 import { HeroSection } from "../components";
 import { FaPlay } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 export default function Home() {
   const data = [
@@ -150,7 +151,7 @@ export default function Home() {
   return (
     <div className="overflow-clip">
       <HeroSection />
-      <div className="flex items-start justify-center my-20 gap-28">
+      <div className="flex flex-col items-center justify-center gap-20 md:items-start md:flex-row my-28 px-7">
         <div>
           <img
             src="https://www.tapasyaedu.com/assets/img/about/about_2.png"
@@ -203,13 +204,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#e0f5fe] w-full h-[60vh] my-10">
+      <div className="bg-[#e0f5fe] w-full p-7 my-20">
         <div>
           <h1 className="pt-10 text-xl font-bold text-center md:text-2xl lg:text-3xl">
             Popular Courses
           </h1>
         </div>
-        <div className="flex items-center mt-10 justify-evenly">
+        <div className="flex flex-col items-center justify-center gap-8 mt-10 md:flex-row md:justify-evenly md:gap-0">
           {data.map((itm, idx) => {
             return (
               <React.Fragment key={idx}>
@@ -229,14 +230,14 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="my-10">
+      <div className="my-20">
         <div>
           <h1 className="text-xl font-bold text-center md:text-2xl lg:text-3xl text-[#060f3f]">
             Outstanding Results
           </h1>
         </div>
 
-        <div className="flex items-center my-10 justify-evenly">
+        <div className="flex flex-col items-center justify-center my-10 md:flex-row md:justify-evenly">
           {results.map((_, idx) => {
             return (
               <React.Fragment key={idx}>
@@ -259,7 +260,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#e0f5fe] w-full  my-12">
+      <div className="bg-[#e0f5fe] w-full  my-20">
         <div className="space-y-3">
           <h1 className="pt-10 text-xl font-bold text-center md:text-2xl lg:text-3xl text-[#060f3f]">
             Testimonials
@@ -299,14 +300,9 @@ export default function Home() {
             );
           })}
         </div>
-        <div className="flex justify-center py-10">
-          <button className="font-semibold text-white bg-[#00b0f5] rounded-lg w-[40vw] py-3.5 text-lg">
-            View All Testimonials
-          </button>
-        </div>
       </div>
 
-      <div className="bg-[#e0f5fe] w-full p-7">
+      <div className="bg-[#e0f5fe] w-full p-7 my-20">
         <div className="space-y-3">
           <h1 className="pt-10 text-xl font-bold text-center md:text-2xl lg:text-3xl">
             Aakash Advantage
@@ -315,7 +311,7 @@ export default function Home() {
             Stay ahead with all-round performance in your chosen stream
           </p>
         </div>
-        <div className="grid grid-cols-3 my-6 gap-x-3 place-items-center gap-y-7">
+        <div className="grid grid-cols-1 my-6 md:grid-cols-2 lg:grid-cols-3 gap-x-3 place-items-center gap-y-7">
           {adv.map((i, idx) => {
             return (
               <React.Fragment key={idx}>
@@ -339,6 +335,187 @@ export default function Home() {
           })}
         </div>
       </div>
+
+      <div className="my-16">
+        <h1 className="py-10 text-xl font-bold text-center md:text-2xl lg:text-3xl">
+          Scholarships
+        </h1>
+        <div className="p-5">
+          <img
+            className="max-w-md mx-auto cursor-pointer lg:max-w-5xl"
+            src="https://dcx0p3on5z8dw.cloudfront.net/Aakash/s3fs-public/2024-04/iacst-repeater-scholarship-hpbanner.webp?GguBe4vJM5TS_9L9CKZT7Ua1pW3AaCyM"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div>
+        <h1 className="py-7 text-xl font-bold text-center md:text-2xl lg:text-3xl text-[#00337e]">
+          Talk to our expert
+        </h1>
+
+        <div className="p-8 max-w-2xl mx-auto bg-white shadow-2xl border-[1px] border-gray-300 rounded-lg">
+          <h2 className="mb-6 text-2xl font-bold text-center text-[#00337e]">
+            Contact Us
+          </h2>
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div>
+                <label
+                  className="block mb-2 font-semibold text-gray-700"
+                  for="name"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Enter your name"
+                  className="w-full p-3 border border-gray-300 rounded-md outline-none "
+                />
+              </div>
+              <div>
+                <label
+                  className="block mb-2 font-semibold text-gray-700"
+                  for="email"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  className="w-full p-3 border border-gray-300 rounded-md outline-none "
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label
+                  className="block mb-2 font-semibold text-gray-700"
+                  for="class"
+                >
+                  Class
+                </label>
+                <input
+                  type="text"
+                  id="class"
+                  placeholder="Enter your class"
+                  className="w-full p-3 border border-gray-300 rounded-md outline-none"
+                />
+              </div>
+              <div>
+                <label
+                  className="block mb-2 font-semibold text-gray-700"
+                  for="stream"
+                >
+                  Stream
+                </label>
+                <input
+                  type="text"
+                  id="stream"
+                  placeholder="Enter your stream"
+                  className="w-full p-3 border border-gray-300 rounded-md outline-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="block mb-2 font-semibold text-gray-700"
+                for="message"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Write your message"
+                className="w-full p-3 border border-gray-300 rounded-md outline-none"
+              ></textarea>
+            </div>
+
+            <div className="text-center">
+              <button className="w-full px-8 py-3 text-white bg-blue-500 rounded-md">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer className="bg-[#303030] p-6 mt-28">
+        <div className="flex flex-col items-center justify-center gap-8 md md:justify-around md:flex-row pt-7">
+          <div className="space-y-4">
+            <img
+              src={"https://www.tapasyaedu.com/assets/img/logo/logo-light.svg"}
+              className="object-cover mx-auto w-36"
+              alt=""
+            />
+            <div className="flex items-center gap-5">
+              <h1 className="font-semibold text-slate-300">Follow Us :</h1>
+              <ul className="flex items-center gap-5">
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+              </ul>
+            </div>
+          </div>
+          <div className="max-w-md">
+            <h1 className="text-center text-slate-300">
+              Aakash Educational Services Limited Registered office Address: No.
+              5/2, 2nd Floor, Kundanahalli Gate, Varthur Road, Opposite SKR
+              Kalyana Mandapa, Whitefield, Bengaluru 560037 CIN:
+              U80300KA2007PLC150057 Telephone: +91-11–47623456 Fax:
+              +91-11–47623472 Email: corporate@aesl.in
+            </h1>
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-5 mt-16 md md:flex-row justify-evenly">
+          <ul className="space-y-4 text-slate-300 ">
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+          <ul className="space-y-4 text-slate-300">
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+          <ul className="space-y-4 text-slate-300">
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+          <ul className="space-y-4 text-slate-300">
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+        </div>
+      </footer>
     </div>
   );
 }
