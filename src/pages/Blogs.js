@@ -354,22 +354,6 @@ export default function Blogs() {
             </h1>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-end gap-10 mt-10 md:gap-20 lg:pr-72 md md:flex-row">
-          <ul className="space-y-4 text-slate-300 ">
-            <h1 className="text-lg font-semibold">About</h1>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
-          <ul className="space-y-4 text-slate-300">
-            <h1 className="text-lg font-semibold">About</h1>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
-        </div>
       </footer>{" "}
     </>
   );

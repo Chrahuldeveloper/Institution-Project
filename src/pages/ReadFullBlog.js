@@ -9,10 +9,8 @@ export default function ReadFullBlog() {
 
   return (
     <>
-      <div className="p-9 border-b-[1px] border-gray-300 shadow-sm">
-        
-      </div>
-      <div className="max-w-3xl p-5 mx-auto my-8 lg:p-0">
+      <div className="p-9 border-b-[1px] border-gray-300 shadow-sm"></div>
+      <div className="max-w-3xl p-3 mx-auto my-5 lg:p-0">
         <div className="">
           <div className="flex items-center gap-3 my-4">
             <img
@@ -28,7 +26,7 @@ export default function ReadFullBlog() {
             </div>
           </div>
 
-          <div className="flex ">
+          <div className="flex">
             <img
               src={data.state.Blog.coverImage}
               className="rounded-lg"
@@ -95,22 +93,6 @@ export default function ReadFullBlog() {
               +91-11–47623472 Email: corporate@aesl.in
             </h1>
           </div>
-        </div>
-        <div className="flex flex-col items-center justify-end gap-10 mt-10 md:gap-20 lg:pr-72 md md:flex-row">
-          <ul className="space-y-4 text-slate-300 ">
-            <h1 className="text-lg font-semibold">About</h1>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
-          <ul className="space-y-4 text-slate-300">
-            <h1 className="text-lg font-semibold">About</h1>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
         </div>
       </footer>{" "}
     </>

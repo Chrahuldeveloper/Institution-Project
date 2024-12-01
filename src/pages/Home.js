@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useId, useRef, useState } from "react";
 import { HeroSection } from "../components";
 import { FaPlay } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-
+import logo from "../images/logo.png";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../FireBase";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../App.css";
 export default function Home() {
   const data = [
     {
@@ -148,9 +153,58 @@ export default function Home() {
     },
   ];
 
+  const id = useId();
+
+  const notify1 = () => toast("we will reach out soon...");
+
+  const [userdata, setuserdata] = useState({
+    Name: "",
+    Email: "",
+    strem: "",
+    class: "",
+    Message: "",
+  });
+
+  const scrollToElement = async (element) => {
+    try {
+      element.current.scrollIntoView();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const save = async () => {
+    try {
+      await setDoc(doc(db, "USERS", id), {
+        Name: "",
+        Email: "",
+        strem: "",
+        class: "",
+        Message: "",
+        timestamp: new Date(),
+      });
+      notify1();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const tesimonialref = useRef();
+  const coursesref = useRef();
+  const resutsref = useRef();
+  const contactref = useRef();
+
   return (
     <div className="overflow-clip">
-  <HeroSection/>
+      <ToastContainer progressClassName="toast-progress" />
+
+      <HeroSection
+        scrollToElement={scrollToElement}
+        tesimonialref={tesimonialref}
+        coursesref={coursesref}
+        resutsref={resutsref}
+        contactref={contactref}
+      />
       <div className="flex flex-col items-center justify-center gap-20 md:items-start md:flex-row my-28 px-7">
         <div>
           <img
@@ -230,7 +284,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="my-20">
+      <div ref={resutsref} className="my-20">
         <div>
           <h1 className="text-xl font-bold text-center md:text-2xl lg:text-3xl text-[#060f3f]">
             Outstanding Results
@@ -261,7 +315,7 @@ export default function Home() {
       </div>
 
       <div className="bg-[#e0f5fe] w-full  my-20">
-        <div className="space-y-3">
+        <div className="space-y-3" ref={tesimonialref}>
           <h1 className="pt-10 text-xl font-bold text-center md:text-2xl lg:text-3xl text-[#060f3f]">
             Testimonials
           </h1>
@@ -349,7 +403,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
+      <div ref={contactref}>
         <h1 className="py-7 text-xl font-bold text-center md:text-2xl lg:text-3xl text-[#00337e]">
           Talk to our expert
         </h1>
@@ -370,6 +424,10 @@ export default function Home() {
                 <input
                   type="text"
                   id="name"
+                  onChange={(e) => {
+                    setuserdata({ ...e, Name: e.target.value });
+                  }}
+                  value={userdata.Name}
                   placeholder="Enter your name"
                   className="w-full p-3 border border-gray-300 rounded-md outline-none "
                 />
@@ -384,6 +442,10 @@ export default function Home() {
                 <input
                   type="email"
                   id="email"
+                  onChange={(e) => {
+                    setuserdata({ ...e, Name: e.target.value });
+                  }}
+                  value={userdata.Email}
                   placeholder="Enter your email"
                   className="w-full p-3 border border-gray-300 rounded-md outline-none "
                 />
@@ -398,12 +460,20 @@ export default function Home() {
                 >
                   Class
                 </label>
-                <input
-                  type="text"
-                  id="class"
-                  placeholder="Enter your class"
+                <select
                   className="w-full p-3 border border-gray-300 rounded-md outline-none"
-                />
+                  name=""
+                  id=""
+                  value={userdata.class}
+                  onChange={(e) => {
+                    setuserdata({ ...e, Name: e.target.value });
+                  }}
+                >
+                  <option value=""></option>
+                  <option value="">10</option>
+                  <option value="">11</option>
+                  <option value="">12</option>
+                </select>
               </div>
               <div>
                 <label
@@ -412,12 +482,19 @@ export default function Home() {
                 >
                   Stream
                 </label>
-                <input
-                  type="text"
-                  id="stream"
-                  placeholder="Enter your stream"
+                <select
                   className="w-full p-3 border border-gray-300 rounded-md outline-none"
-                />
+                  name=""
+                  value={userdata.strem}
+                  onChange={(e) => {
+                    setuserdata({ ...e, Name: e.target.value });
+                  }}
+                  id=""
+                >
+                  <option value=""></option>
+                  <option value="">IIT</option>
+                  <option value="">NEET</option>
+                </select>
               </div>
             </div>
 
@@ -425,6 +502,10 @@ export default function Home() {
               <label
                 className="block mb-2 font-semibold text-gray-700"
                 for="message"
+                value={userdata.Message}
+                onChange={(e) => {
+                  setuserdata({ ...e, Name: e.target.value });
+                }}
               >
                 Message
               </label>
@@ -437,7 +518,10 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <button className="w-full px-8 py-3 text-white bg-blue-500 rounded-md">
+              <button
+                onClick={save}
+                className="w-full px-8 py-3 text-white bg-blue-500 rounded-md"
+              >
                 Submit
               </button>
             </div>
@@ -448,11 +532,7 @@ export default function Home() {
       <footer className="bg-[#303030] p-6 mt-28">
         <div className="flex flex-col items-center justify-center gap-8 md md:justify-around md:flex-row pt-7">
           <div className="space-y-4">
-            <img
-              src={"https://www.tapasyaedu.com/assets/img/logo/logo-light.svg"}
-              className="object-cover mx-auto w-36"
-              alt=""
-            />
+            <img src={logo} className="object-cover w-40 mx-auto" alt="" />
             <div className="flex items-center gap-5">
               <h1 className="font-semibold text-slate-300">Follow Us :</h1>
               <ul className="flex items-center gap-5">
@@ -488,22 +568,6 @@ export default function Home() {
               +91-11–47623472 Email: corporate@aesl.in
             </h1>
           </div>
-        </div>
-        <div className="flex flex-col items-center justify-end gap-10 mt-10 md:gap-20 lg:pr-72 md md:flex-row">
-          <ul className="space-y-4 text-slate-300 ">
-            <h1 className="text-lg font-semibold">About</h1>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
-          <ul className="space-y-4 text-slate-300">
-            <h1 className="text-lg font-semibold">About</h1>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
         </div>
       </footer>
     </div>

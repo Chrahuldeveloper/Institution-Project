@@ -2,27 +2,25 @@ import React, { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { CiHome } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
-
-export default function HeroSection() {
+import logo from "../images/logo.png";
+export default function HeroSection({
+  scrollToElement,
+  tesimonialref,
+  resutsref,
+  contactref,
+}) {
   const [istoogle, setistoogle] = useState(false);
 
+  const pdf =
+    "https://firebasestorage.googleapis.com/v0/b/app-2-d919d.appspot.com/o/pdfcoffee.com_the-millionaire-real-estate-investor-2-pdf-free.pdf?alt=media&token=8eb14240-385e-4ac1-ae9f-1d4006090316";
 
-
-
-
-
-  const pdf = "https://firebasestorage.googleapis.com/v0/b/app-2-d919d.appspot.com/o/pdfcoffee.com_the-millionaire-real-estate-investor-2-pdf-free.pdf?alt=media&token=8eb14240-385e-4ac1-ae9f-1d4006090316"
-
-  const downloadBroucher = ()=>{
-
+  const downloadBroucher = () => {
     const link = document.createElement("a");
-    link.href = pdf; 
-    link.target = "_blank"; 
-    link.download = "Broucher.pdf"; 
+    link.href = pdf;
+    link.target = "_blank";
+    link.download = "Broucher.pdf";
     link.click();
-  
-
-  }
+  };
 
   return (
     <>
@@ -38,11 +36,7 @@ export default function HeroSection() {
         <div className="absolute top-[10%] left-[20%] md:left-[20%] translate-y-[-70%] translate-x-[-20%] ">
           <div className="flex items-center justify-between w-[100vw] md:px-10 lg:px-6 px-3.5">
             <div>
-              <img
-                className="w-28 h-28"
-                src="https://www.tapasyaedu.com/assets/img/logo/logo-light.svg"
-                alt=""
-              />
+              <img className="w-28 h-28" src={logo} alt="" />
             </div>
             <div className="flex items-center justify-center ">
               <CiMenuFries
@@ -58,9 +52,30 @@ export default function HeroSection() {
                 <ul className="flex items-center gap-5 text-sm font-semibold text-white">
                   <li className="cursor-pointer">Home</li>
                   <li className="cursor-pointer">Blogs</li>
-                  <li className="cursor-pointer">Testimonals</li>
-                  <li className="cursor-pointer">Results</li>
-                  <li className="cursor-pointer">ContactUs</li>
+                  <li
+                    className="cursor-pointer"
+                    onClick={() => {
+                      scrollToElement(tesimonialref);
+                    }}
+                  >
+                    Testimonals
+                  </li>
+                  <li
+                    className="cursor-pointer"
+                    onClick={() => {
+                      scrollToElement(resutsref);
+                    }}
+                  >
+                    Results
+                  </li>
+                  <li
+                    className="cursor-pointer"
+                    onClick={() => {
+                      scrollToElement(contactref);
+                    }}
+                  >
+                    ContactUs
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -72,7 +87,10 @@ export default function HeroSection() {
           </h1>
           <h1>Since Two Decades</h1>
           <p className="text-base">--- Best Commerce collage in south india</p>
-          <button onClick={downloadBroucher} className="px-8 py-3 text-sm text-black bg-white rounded-md">
+          <button
+            onClick={downloadBroucher}
+            className="px-8 py-3 text-sm text-black bg-white rounded-md"
+          >
             Download Broucher
           </button>
         </div>
@@ -100,15 +118,33 @@ export default function HeroSection() {
                 <CiHome size={24} color="black" />
                 <h1>Blogs</h1>
               </li>
-              <li className="flex items-center cursor-pointer gap-7">
+              <li
+                onClick={() => {
+                  setistoogle(false);
+                  scrollToElement(tesimonialref);
+                }}
+                className="flex items-center cursor-pointer gap-7"
+              >
                 <CiHome size={24} color="black" />
                 <h1>Testimonals</h1>
               </li>
-              <li className="flex items-center cursor-pointer gap-7">
+              <li
+                onClick={() => {
+                  setistoogle(false);
+                  scrollToElement(resutsref);
+                }}
+                className="flex items-center cursor-pointer gap-7"
+              >
                 <CiHome size={24} color="black" />
                 <h1>Results</h1>
               </li>
-              <li className="flex items-center cursor-pointer gap-7">
+              <li
+                onClick={() => {
+                  setistoogle(false);
+                  scrollToElement(contactref);
+                }}
+                className="flex items-center cursor-pointer gap-7"
+              >
                 <CiHome size={24} color="black" />
                 <h1>ContactUs</h1>
               </li>
