@@ -1,4 +1,6 @@
 import React from "react";
+import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Blogs() {
   const blogs = [
@@ -19,9 +21,16 @@ export default function Blogs() {
             "https://images.pexels.com/photos/29410748/pexels-photo-29410748/free-photo-of-vintage-car-cruising-by-the-seaside-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         },
         {
-          title: "AI in Healthcare",
+          title: "Introduction to AI",
           paragraph:
-            "AI is revolutionizing healthcare by providing tools for early diagnosis, personalized medicine, and efficient patient care.",
+            "Artificial intelligence is reshaping the way we interact with technology in our daily lives. From smart assistants to autonomous vehicles, the possibilities are endless.",
+          image:
+            "https://images.pexels.com/photos/29410748/pexels-photo-29410748/free-photo-of-vintage-car-cruising-by-the-seaside-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        },
+        {
+          title: "Introduction to AI",
+          paragraph:
+            "Artificial intelligence is reshaping the way we interact with technology in our daily lives. From smart assistants to autonomous vehicles, the possibilities are endless.",
           image:
             "https://images.pexels.com/photos/29410748/pexels-photo-29410748/free-photo-of-vintage-car-cruising-by-the-seaside-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         },
@@ -267,33 +276,101 @@ export default function Blogs() {
           {blogs.map((_, i) => {
             return (
               <React.Fragment key={i}>
-                <div className="p-5 cursor-pointer">
-                  <div>
-                    <img src={_.coverImage} alt="" className="rounded-lg"/>
-                    <div className="flex items-center gap-3 mt-3">
-                      <img
-                        src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600"
-                        className="object-cover w-12 h-12 rounded-full"
-                        alt=""
-                      />
-                      <div className="space-y-1 ">
-                        <h1 className="font-semibold text-gray-800">
-                          {_.author}
-                        </h1>
-                        <p className="text-sm text-gray-700">{_.date}</p>
+                <Link
+                  to="/readblog"
+                  state={{
+                    Blog: _,
+                  }}
+                >
+                  <div className="p-5 cursor-pointer">
+                    <div>
+                      <img src={_.coverImage} alt="" className="rounded-lg" />
+                      <div className="flex items-center gap-3 mt-3">
+                        <img
+                          src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          className="object-cover w-12 h-12 rounded-full"
+                          alt=""
+                        />
+                        <div className="space-y-1 ">
+                          <h1 className="font-semibold text-gray-800">
+                            {_.author}
+                          </h1>
+                          <p className="text-sm text-gray-700">{_.date}</p>
+                        </div>
+                      </div>
+                      <div className="my-3 space-y-2">
+                        <h1 className="text-xl font-semibold">{_.title}</h1>
+                        <p className="text-sm text-gray-600">{_.intro}</p>
                       </div>
                     </div>
-                    <div className="my-3 space-y-2">
-                      <h1 className="text-xl font-semibold">{_.title}</h1>
-                      <p className="text-sm text-gray-600">{_.intro}</p>
-                    </div>
                   </div>
-                </div>
+                </Link>
               </React.Fragment>
             );
           })}
         </div>
       </div>
+      <footer className="bg-[#303030] p-6 mt-28">
+        <div className="flex flex-col items-center justify-center gap-8 md md:justify-around md:flex-row pt-7">
+          <div className="space-y-4">
+            <img
+              src={"https://www.tapasyaedu.com/assets/img/logo/logo-light.svg"}
+              className="object-cover mx-auto w-36"
+              alt=""
+            />
+            <div className="flex items-center gap-5">
+              <h1 className="font-semibold text-slate-300">Follow Us :</h1>
+              <ul className="flex items-center gap-5">
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+                <FaInstagram
+                  size={24}
+                  color="white"
+                  className="cursor-pointer"
+                />
+              </ul>
+            </div>
+          </div>
+          <div className="max-w-md">
+            <h1 className="text-center text-slate-300">
+              Aakash Educational Services Limited Registered office Address: No.
+              5/2, 2nd Floor, Kundanahalli Gate, Varthur Road, Opposite SKR
+              Kalyana Mandapa, Whitefield, Bengaluru 560037 CIN:
+              U80300KA2007PLC150057 Telephone: +91-11–47623456 Fax:
+              +91-11–47623472 Email: corporate@aesl.in
+            </h1>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-end gap-10 mt-10 md:gap-20 lg:pr-72 md md:flex-row">
+          <ul className="space-y-4 text-slate-300 ">
+            <h1 className="text-lg font-semibold">About</h1>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+          <ul className="space-y-4 text-slate-300">
+            <h1 className="text-lg font-semibold">About</h1>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+        </div>
+      </footer>{" "}
     </>
   );
 }

@@ -1,11 +1,15 @@
 import React from "react";
-import { Home , Blogs} from "./pages";
+import { Home, Blogs, ReadFullBlog } from "./pages";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 export default function App() {
   return (
     <>
-      {/* <Home /> */}
-      <Blogs/>
+      <Routes>
+        <Route element={<Home />} path="/"/>
+        <Route element={<Blogs />} path="/blogs"/>
+        <Route element={<ReadFullBlog />}  path="/readblog"/>
+      </Routes>
     </>
   );
 }
