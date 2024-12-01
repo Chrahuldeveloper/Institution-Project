@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { CiHome } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
+import { FaPhone } from "react-icons/fa";
+import { SlPeople } from "react-icons/sl";
+import { FaBloggerB } from "react-icons/fa";
+import { VscGraph } from "react-icons/vsc";
+
 import logo from "../images/logo.png";
 export default function HeroSection({
   scrollToElement,
@@ -98,7 +103,7 @@ export default function HeroSection({
 
       {istoogle ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center h-full bg-black bg-opacity-75 backdrop-blur-md">
-          <div className="bg-white w-[60vw] md:hidden p-5 rounded-md">
+          <div className="bg-white w-[70vw] md:hidden p-5 rounded-md">
             <div className="flex justify-end translate-x-5 -translate-y-14">
               <RxCross2
                 className="p-1 bg-white rounded-full cursor-pointer w-7 h-7"
@@ -115,7 +120,7 @@ export default function HeroSection({
                 <h1>Home</h1>
               </li>
               <li className="flex items-center cursor-pointer gap-7">
-                <CiHome size={24} color="black" />
+                <FaBloggerB size={24} color="black" />
                 <h1>Blogs</h1>
               </li>
               <li
@@ -125,7 +130,7 @@ export default function HeroSection({
                 }}
                 className="flex items-center cursor-pointer gap-7"
               >
-                <CiHome size={24} color="black" />
+                <SlPeople size={24} color="black" />
                 <h1>Testimonals</h1>
               </li>
               <li
@@ -135,7 +140,7 @@ export default function HeroSection({
                 }}
                 className="flex items-center cursor-pointer gap-7"
               >
-                <CiHome size={24} color="black" />
+                <VscGraph size={24} color="black" />
                 <h1>Results</h1>
               </li>
               <li
@@ -145,7 +150,7 @@ export default function HeroSection({
                 }}
                 className="flex items-center cursor-pointer gap-7"
               >
-                <CiHome size={24} color="black" />
+                <FaPhone size={24} color="black" />
                 <h1>ContactUs</h1>
               </li>
             </ul>
