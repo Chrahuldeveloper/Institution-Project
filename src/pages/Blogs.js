@@ -258,7 +258,7 @@ export default function Blogs() {
 
   return (
     <>
-      <div className="w-[80vw] mx-auto my-8">
+      <div className="w-[90vw] mx-auto my-8">
         <div className="flex items-center gap-5 px-5">
           <div>
             <img
@@ -299,7 +299,7 @@ export default function Blogs() {
                         </div>
                       </div>
                       <div className="my-3 space-y-2">
-                        <h1 className="text-xl font-semibold">{_.title}</h1>
+                        <h1 className="text-lg font-semibold">{_.title}</h1>
                         <p className="text-sm text-gray-600">{_.intro}</p>
                       </div>
                     </div>

@@ -6,7 +6,7 @@ import { FaPhone } from "react-icons/fa";
 import { SlPeople } from "react-icons/sl";
 import { FaBloggerB } from "react-icons/fa";
 import { VscGraph } from "react-icons/vsc";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import logo from "../images/logo.png";
 export default function HeroSection({
@@ -120,12 +120,15 @@ export default function HeroSection({
                 <CiHome size={24} color="black" />
                 <h1>Home</h1>
               </li>
-              <Link to={"/blogs"}>
-              <li  className="flex items-center cursor-pointer gap-7">
-                <FaBloggerB size={24} color="black" />
-                <h1>Blogs</h1>
+              <li>
+                <Link
+                  className="flex items-center cursor-pointer gap-7"
+                  to={"/blogs"}
+                >
+                  <FaBloggerB size={24} color="black" />
+                  <h1>Blogs</h1>
+                </Link>
               </li>
-              </Link>
               <li
                 onClick={() => {
                   setistoogle(false);
