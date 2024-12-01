@@ -150,7 +150,7 @@ export default function Home() {
 
   return (
     <div className="overflow-clip">
-      <HeroSection />
+  <HeroSection/>
       <div className="flex flex-col items-center justify-center gap-20 md:items-start md:flex-row my-28 px-7">
         <div>
           <img
@@ -489,26 +489,16 @@ export default function Home() {
             </h1>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-5 mt-16 md md:flex-row justify-evenly">
+        <div className="flex flex-col items-center justify-end gap-10 mt-10 md:gap-20 lg:pr-72 md md:flex-row">
           <ul className="space-y-4 text-slate-300 ">
+            <h1 className="text-lg font-semibold">About</h1>
             <li>Home</li>
             <li>Home</li>
             <li>Home</li>
             <li>Home</li>
           </ul>
           <ul className="space-y-4 text-slate-300">
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
-          <ul className="space-y-4 text-slate-300">
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
-          <ul className="space-y-4 text-slate-300">
+            <h1 className="text-lg font-semibold">About</h1>
             <li>Home</li>
             <li>Home</li>
             <li>Home</li>

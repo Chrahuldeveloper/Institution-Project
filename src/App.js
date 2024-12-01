@@ -1,10 +1,11 @@
 import React from "react";
-import { Home } from "./pages";
+import { Home , Blogs} from "./pages";
 import "./App.css";
 export default function App() {
   return (
     <>
-      <Home />
+      {/* <Home /> */}
+      <Blogs/>
     </>
   );
 }
